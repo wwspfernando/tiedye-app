@@ -1,3 +1,4 @@
+
 import { React, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
@@ -7,7 +8,6 @@ import { server } from "../../server";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,8 +23,7 @@ const Login = () => {
           email,
           password,
         },
-        
-       { withCredentials: true }
+        { withCredentials: true }
       )
       .then((res) => {
         toast.success("Login Success!");
@@ -37,8 +36,6 @@ const Login = () => {
   };
 
   return (
-    
-    
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
