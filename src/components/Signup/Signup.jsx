@@ -1,4 +1,5 @@
 
+
 import { React, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
@@ -184,3 +185,4 @@ const Singup = () => {
 };
 
 export default Singup;
+ 

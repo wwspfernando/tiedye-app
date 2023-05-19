@@ -19,7 +19,6 @@ export const userReducer = createReducer(initialState, {
     state.isAuthenticated = false;
   },
 
-
   // update user information
   updateUserInfoRequest: (state) => {
     state.loading = true;
@@ -58,6 +57,19 @@ export const userReducer = createReducer(initialState, {
   },
   deleteUserAddressFailed: (state, action) => {
     state.addressloading = false;
+    state.error = action.payload;
+  },
+
+  // get all users --- admin
+  getAllUsersRequest: (state) => {
+    state.usersLoading = true;
+  },
+  getAllUsersSuccess: (state,action) => {
+    state.usersLoading = false;
+    state.users = action.payload;
+  },
+  getAllUsersFailed: (state,action) => {
+    state.usersLoading = false;
     state.error = action.payload;
   },
   clearErrors: (state) => {

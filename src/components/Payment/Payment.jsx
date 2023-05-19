@@ -221,8 +221,9 @@ const PaymentInfo = ({
               <div className="w-[13px] h-[13px] bg-[#1d1a1acb] rounded-full" />
             ) : null}
           </div>
-          <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
+          <h4 className="text-[18px] pl-2 font-[800] text-[#000000b1]">
             Pay with Debit/credit card
+          
           </h4>
         </div>
 
@@ -313,7 +314,7 @@ const PaymentInfo = ({
               <input
                 type="submit"
                 value="Submit"
-                className={`${styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+                className={`${styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[800]`}
               />
             </form>
           </div>
@@ -332,7 +333,7 @@ const PaymentInfo = ({
               <div className="w-[13px] h-[13px] bg-[#1d1a1acb] rounded-full" />
             ) : null}
           </div>
-          <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
+          <h4 className="text-[18px] pl-2 font-[800] text-[#000000b1]">
             Pay with Paypal
           </h4>
         </div>
@@ -341,7 +342,7 @@ const PaymentInfo = ({
         {select === 2 ? (
           <div className="w-full flex border-b">
             <div
-              className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+              className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[800]`}
               onClick={() => setOpen(true)}
             >
               Pay Now
@@ -387,7 +388,7 @@ const PaymentInfo = ({
               <div className="w-[13px] h-[13px] bg-[#1d1a1acb] rounded-full" />
             ) : null}
           </div>
-          <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
+          <h4 className="text-[18px] pl-2 font-[800] text-[#000000b1]">
             Cash on Delivery
           </h4>
         </div>
@@ -399,7 +400,7 @@ const PaymentInfo = ({
               <input
                 type="submit"
                 value="Confirm"
-                className={`${styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+                className={`${styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[800]`}
               />
             </form>
           </div>
@@ -414,20 +415,20 @@ const CartData = ({ orderData }) => {
   return (
     <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
       <div className="flex justify-between">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">subtotal:</h3>
-        <h5 className="text-[18px] font-[600]">${orderData?.subTotalPrice}</h5>
+        <h3 className="text-[16px] font-[800] text-[#000000a4]">subtotal:</h3>
+        <h5 className="text-[18px] font-[700]">${orderData?.subTotalPrice}</h5>
       </div>
       <br />
       <div className="flex justify-between">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">shipping:</h3>
-        <h5 className="text-[18px] font-[600]">${shipping}</h5>
+        <h3 className="text-[16px] font-[800] text-[#000000a4]">shipping:</h3>
+        <h5 className="text-[18px] font-[700]">${shipping}</h5>
       </div>
       <br />
       <div className="flex justify-between border-b pb-3">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
-        <h5 className="text-[18px] font-[600]">{orderData?.discountPrice? "$" + orderData.discountPrice : "-"}</h5>
+        <h3 className="text-[16px] font-[800] text-[#000000a4]">Discount:</h3>
+        <h5 className="text-[18px] font-[700]">{orderData?.discountPrice? "$" + orderData.discountPrice : "-"}</h5>
       </div>
-      <h5 className="text-[18px] font-[600] text-end pt-3">
+      <h5 className="text-[18px] font-[800] text-end pt-3">
         ${orderData?.totalPrice}
       </h5>
       <br />
@@ -436,4 +437,3 @@ const CartData = ({ orderData }) => {
 };
 
 export default Payment;
-

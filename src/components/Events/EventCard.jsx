@@ -33,6 +33,7 @@ const EventCard = ({ active, data }) => {
         active ? "unset" : "mb-12"
       } lg:flex p-2`}
     >
+      
       <div className="w-full lg:-w[50%] m-auto">
         {data && data.images && data.images[0] ? (
           <img src={`${backend_url}${data.images[0]}`} alt="" />
@@ -48,10 +49,11 @@ const EventCard = ({ active, data }) => {
             <div className="flex py-2 justify-between">
               <div className="flex">
                 <h5 className="font-[500] text-[18px] text-[#d55b45] pr-3 line-through">
-                  {data.originalPrice}$
+                  
+                  {data.originalPrice}Rs/=
                 </h5>
                 <h5 className="font-bold text-[20px] text-[#333] font-Roboto">
-                  {data.discountPrice}$
+                  {data.discountPrice}Rs/=
                 </h5>
               </div>
               <span className="pr-3 font-[400] text-[17px] text-[#44a55e]">
@@ -62,10 +64,11 @@ const EventCard = ({ active, data }) => {
             <br />
             <div className="flex items-center">
               <Link to={`/product/${data._id}?isEvent=true`}>
-                <div className={`${styles.button} text-[#fff]`}>See Details</div>
+                
+                <div className={`${styles.button} text-[#fff] font-[800]`}>See Details</div>
               </Link>
               <div
-                className={`${styles.button} text-[#fff] ml-5`}
+                className={`${styles.button} text-[#fff] ml-5 font-[800]`}
                 onClick={() => addToCartHandler(data)}
               >
                 Add to cart

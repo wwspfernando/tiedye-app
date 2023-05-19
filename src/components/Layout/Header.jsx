@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/styles";
@@ -24,7 +25,7 @@ const Header = ({ activeHeading }) => {
   const { isSeller } = useSelector((state) => state.seller);
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
-  const {allProducts} = useSelector((state) => state.products);
+  const { allProducts } = useSelector((state) => state.products);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
@@ -37,9 +38,11 @@ const Header = ({ activeHeading }) => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    const filteredProducts = allProducts && allProducts.filter((product) =>
-      product.name.toLowerCase().includes(term.toLowerCase())
-    );
+    const filteredProducts =
+      allProducts &&
+      allProducts.filter((product) =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      );
     setSearchData(filteredProducts);
   };
 
@@ -58,8 +61,8 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-                alt=""
+               /* src="https://shopo.quomodothemes.website/assets/images/logo.svg"*/
+                alt="DIYPENGUIE"
               />
             </Link>
           </div>
@@ -70,7 +73,8 @@ const Header = ({ activeHeading }) => {
               placeholder="Search Product..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="h-[40px] w-full px-2 border-[#3957db] border-[2px] rounded-md"
+              
+              className="h-[40px] w-full px-2 border-[#2126b3] border-[6px] rounded-md"
             />
             <AiOutlineSearch
               size={30}
@@ -98,9 +102,10 @@ const Header = ({ activeHeading }) => {
           </div>
 
           <div className={`${styles.button}`}>
-            <Link to={`${isSeller ? '/dashboard' : '/shop-create'}`}>
+            <Link to={`${isSeller ? "/dashboard" : "/shop-create"}`}>
               <h1 className="text-[#fff] flex items-center">
-               {isSeller ? "Go Dashboard" : "Become Seller"}  <IoIosArrowForward className="ml-1" />
+                {isSeller ? "Go Dashboard" : "Become Seller"}{" "}
+                <IoIosArrowForward className="ml-1" />
               </h1>
             </Link>
           </div>
@@ -109,7 +114,7 @@ const Header = ({ activeHeading }) => {
       <div
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-[#FF0000] h-[70px]`}
+        } transition hidden 800px:flex items-center justify-between w-full bg-[#eb2323] h-[70px]`}
       >
         <div
           className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
@@ -119,9 +124,10 @@ const Header = ({ activeHeading }) => {
             <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block">
               <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
               <button
-                className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md`}
+                className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[800] select-none rounded-t-md`}
               >
-                 Our  Categories
+                Our Clasifications
+              
               </button>
               <IoIosArrowDown
                 size={20}
@@ -148,7 +154,7 @@ const Header = ({ activeHeading }) => {
                 onClick={() => setOpenWishlist(true)}
               >
                 <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
-                <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <span className="absolute right-0 top-0 rounded-full bg-[#0d118c] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {wishlist && wishlist.length}
                 </span>
               </div>
@@ -163,7 +169,7 @@ const Header = ({ activeHeading }) => {
                   size={30}
                   color="rgb(255 255 255 / 83%)"
                 />
-                <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <span className="absolute right-0 top-0 rounded-full bg-[#675a0c] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {cart && cart.length}
                 </span>
               </div>
@@ -174,7 +180,7 @@ const Header = ({ activeHeading }) => {
                 {isAuthenticated ? (
                   <Link to="/profile">
                     <img
-                      src={`${backend_url}${user.avatar}`}
+                      src={`${backend_url}${user?.avatar}`}
                       className="w-[35px] h-[35px] rounded-full"
                       alt=""
                     />
@@ -223,13 +229,21 @@ const Header = ({ activeHeading }) => {
             </Link>
           </div>
           <div>
-            <div className="relative mr-[20px]">
+            <div
+              className="relative mr-[20px]"
+              onClick={() => setOpenCart(true)}
+            >
               <AiOutlineShoppingCart size={30} />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
-              {cart && cart.length}
+                {cart && cart.length}
               </span>
             </div>
           </div>
+          {/* cart popup */}
+          {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
+
+          {/* wishlist popup */}
+          {openWishlist ? <Wishlist setOpenWishlist={setOpenWishlist} /> : null}
         </div>
 
         {/* header sidebar */}
@@ -237,13 +251,16 @@ const Header = ({ activeHeading }) => {
           <div
             className={`fixed w-full bg-[#0000005f] z-20 h-full top-0 left-0`}
           >
-            <div className="fixed w-[60%] bg-[#fff] h-screen top-0 left-0 z-10 overflow-y-scroll">
+            <div className="fixed w-[70%] bg-[#fff] h-screen top-0 left-0 z-10 overflow-y-scroll">
               <div className="w-full justify-between flex pr-3">
                 <div>
-                  <div className="relative mr-[15px]">
+                  <div
+                    className="relative mr-[15px]"
+                    onClick={() => setOpenWishlist(true) || setOpen(false)}
+                  >
                     <AiOutlineHeart size={30} className="mt-5 ml-3" />
-                    <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
-                      0
+                    <span class="absolute right-0 top-0 rounded-full bg-[#160345] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+                      {wishlist && wishlist.length}
                     </span>
                   </div>
                 </div>
@@ -288,7 +305,7 @@ const Header = ({ activeHeading }) => {
               <Navbar active={activeHeading} />
               <div className={`${styles.button} ml-4 !rounded-[4px]`}>
                 <Link to="/shop-create">
-                  <h1 className="text-[#fff] flex items-center">
+                  <h1 className="text-[#fff] flex items-center font-[800]">
                     Become Seller <IoIosArrowForward className="ml-1" />
                   </h1>
                 </Link>
@@ -334,4 +351,3 @@ const Header = ({ activeHeading }) => {
 };
 
 export default Header;
-

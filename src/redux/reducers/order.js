@@ -1,3 +1,4 @@
+
 import { createReducer } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -28,6 +29,19 @@ export const orderReducer = createReducer(initialState, {
   },
   getAllOrdersShopFailed: (state, action) => {
     state.isLoading = false;
+    state.error = action.payload;
+  },
+
+  // get all orders for admin
+  adminAllOrdersRequest: (state) => {
+    state.adminOrderLoading = true;
+  },
+  adminAllOrdersSuccess: (state, action) => {
+    state.adminOrderLoading = false;
+    state.adminOrders = action.payload;
+  },
+  adminAllOrdersFailed: (state, action) => {
+    state.adminOrderLoading = false;
     state.error = action.payload;
   },
 

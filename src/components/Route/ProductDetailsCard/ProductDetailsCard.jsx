@@ -92,7 +92,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                     <img
                       src={`${backend_url}${data?.shop?.avatar}`}
                       alt=""
-                      className="w-[50px] h-[50px] rounded-full mr-2"
+                      className="w-[50px] h-[50px] rounded-full mr-2 font-[800]"
                     />
                     <div>
                       <h3 className={`${styles.shop_name}`}>
@@ -103,28 +103,30 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   </Link>
                 </div>
                 <div
-                  className={`${styles.button} bg-[#000] mt-4 rounded-[4px] h-11`}
+                  className={`${styles.button} bg-[#111d68] mt-4 rounded-[4px] h-11`}
                   onClick={handleMessageSubmit}
                 >
-                  <span className="text-[#fff] flex items-center">
+                  
+                  <span className="text-[#fff] flex items-center font-[800]">
                     Send Message <AiOutlineMessage className="ml-1" />
                   </span>
                 </div>
-                <h5 className="text-[16px] text-[red] mt-5">(50) Sold out</h5>
+                <h5 className="text-[16px] font-[800] text-[red] mt-5">(50) Sold out</h5>
               </div>
 
               <div className="w-full 800px:w-[50%] pt-5 pl-[5px] pr-[5px]">
-                <h1 className={`${styles.productTitle} text-[20px]`}>
+                <h1 className={`${styles.productTitle} text-[20px] font-[800]`}>
                   {data.name}
                 </h1>
                 <p>{data.description}</p>
 
-                <div className="flex pt-3">
+                <div className="flex pt-3 font-[800]">
                   <h4 className={`${styles.productDiscountPrice}`}>
-                    {data.discountPrice}$
+                    
+                    {data.discountPrice}Rs/=
                   </h4>
                   <h3 className={`${styles.price}`}>
-                    {data.originalPrice ? data.originalPrice + "$" : null}
+                    {data.originalPrice ? data.originalPrice + "" : null}
                   </h3>
                 </div>
                 <div className="flex items-center mt-12 justify-between pr-3">
@@ -168,7 +170,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   className={`${styles.button} mt-6 rounded-[4px] h-11 flex items-center`}
                   onClick={() => addToCartHandler(data._id)}
                 >
-                  <span className="text-[#fff] flex items-center">
+                  <span className="text-[#fff] flex items-center font-[800]">
                     Add to cart <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>

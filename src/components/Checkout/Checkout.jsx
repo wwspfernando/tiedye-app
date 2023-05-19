@@ -138,7 +138,7 @@ const Checkout = () => {
         className={`${styles.button} w-[150px] 800px:w-[280px] mt-10`}
         onClick={paymentSubmit}
       >
-        <h5 className="text-white">Go to Payment</h5>
+        <h5 className="text-white font-[800]">Go to Payment</h5>
       </div>
     </div>
   );
@@ -157,11 +157,12 @@ const ShippingInfo = ({
   address2,
   setAddress2,
   zipCode,
+  
   setZipCode,
 }) => {
   return (
     <div className="w-full 800px:w-[95%] bg-white rounded-md p-5 pb-8">
-      <h5 className="text-[18px] font-[500]">Shipping Address</h5>
+      <h5 className="text-[18px] font-[800]">Shipping Address</h5>
       <br />
       <form>
         <div className="w-full flex pb-3">
@@ -315,22 +316,23 @@ const CartData = ({
   return (
     <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
       <div className="flex justify-between">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">subtotal:</h3>
-        <h5 className="text-[18px] font-[600]">${subTotalPrice}</h5>
+        <h3 className="text-[16px] font-[800] text-[#18046ea4]">subtotal:</h3>
+        
+        <h5 className="text-[18px] font-[600]">Rs/={subTotalPrice}</h5>
       </div>
       <br />
       <div className="flex justify-between">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">shipping:</h3>
-        <h5 className="text-[18px] font-[600]">${shipping.toFixed(2)}</h5>
+        <h3 className="text-[16px] font-[800] text-[#1f0269a4]">shipping:</h3>
+        <h5 className="text-[18px] font-[700]">Rs/={shipping.toFixed(2)}</h5>
       </div>
       <br />
       <div className="flex justify-between border-b pb-3">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
-        <h5 className="text-[18px] font-[600]">
-          - {discountPercentenge ? "$" + discountPercentenge.toString() : null}
+        <h3 className="text-[16px] font-[800] text-[#000000a4]">Discount:</h3>
+        <h5 className="text-[18px] font-[700]">
+          - {discountPercentenge ? "Rs/=" + discountPercentenge.toString() : null}
         </h5>
       </div>
-      <h5 className="text-[18px] font-[600] text-end pt-3">${totalPrice}</h5>
+      <h5 className="text-[18px] font-[800] text-end pt-3">Rs/={totalPrice}</h5>
       <br />
       <form onSubmit={handleSubmit}>
         <input
@@ -342,7 +344,7 @@ const CartData = ({
           required
         />
         <input
-          className={`w-full h-[40px] border border-[#f63b60] text-center text-[#f63b60] rounded-[3px] mt-8 cursor-pointer`}
+          className={`w-full h-[40px] border border-[#792d16] text-center text-[#f63b60] font-[800] rounded-[3px] mt-8 cursor-pointer`}
           required
           value="Apply code"
           type="submit"

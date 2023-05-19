@@ -20,10 +20,11 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 1 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 1 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 1 ? "text-[#ff4dac]" : "text-[#555]"
             }`}
           >
+            
             Dashboard
           </h5>
         </Link>
@@ -36,7 +37,7 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 2 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
               active === 2 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
@@ -49,8 +50,8 @@ const DashboardSideBar = ({ active }) => {
         <Link to="/dashboard-products" className="w-full flex items-center">
           <FiPackage size={30} color={`${active === 3 ? "crimson" : "#555"}`} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 3 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 3 ? "text-[#704af7]" : "text-[#555]"
             }`}
           >
             All Products
@@ -68,8 +69,8 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 4 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 4 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 4 ? "text-[#494cf4]" : "text-[#555]"
             }`}
           >
             Create Product
@@ -84,8 +85,8 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 5 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 5 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 5 ? "text-[#f448c6]" : "text-[#555]"
             }`}
           >
             All Events
@@ -100,8 +101,8 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 6 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 6 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 6 ? "text-[#49f460]" : "text-[#555]"
             }`}
           >
             Create Event
@@ -119,8 +120,8 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 7 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 7 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 7 ? "text-[#4aecf4]" : "text-[#555]"
             }`}
           >
             Withdraw Money
@@ -135,8 +136,8 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 8 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 8 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 8 ? "text-[#f9a84b]" : "text-[#555]"
             }`}
           >
             Shop Inbox
@@ -151,8 +152,8 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 9 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 9 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 9 ? "text-[#a54cf8]" : "text-[#555]"
             }`}
           >
             Discount Codes
@@ -167,8 +168,8 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 10 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 10 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 10 ? "text-[#f34a6c]" : "text-[#555]"
             }`}
           >
             Refunds
@@ -183,8 +184,8 @@ const DashboardSideBar = ({ active }) => {
             color={`${active === 11 ? "crimson" : "#555"}`}
           />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 11 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[800] ${
+              active === 11 ? "text-[#4bd0f9]" : "text-[#555]"
             }`}
           >
             Settings

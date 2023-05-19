@@ -104,8 +104,9 @@ const ProfileContent = ({ active }) => {
             <form onSubmit={handleSubmit} aria-required={true}>
               <div className="w-full 800px:flex block pb-3">
                 <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Full Name</label>
+                  <label className="block pb-2 font-[800]">Your Full Name</label>
                   <input
+                    
                     type="text"
                     className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
                     required
@@ -114,7 +115,7 @@ const ProfileContent = ({ active }) => {
                   />
                 </div>
                 <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Email Address</label>
+                  <label className="block pb-2 font-[800]">Your Email Address</label>
                   <input
                     type="text"
                     className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
@@ -127,7 +128,7 @@ const ProfileContent = ({ active }) => {
 
               <div className="w-full 800px:flex block pb-3">
                 <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Phone Number</label>
+                  <label className="block pb-2 font-[800]">Your Phone Number</label>
                   <input
                     type="number"
                     className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -138,7 +139,7 @@ const ProfileContent = ({ active }) => {
                 </div>
 
                 <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Enter your password</label>
+                  <label className="block pb-2 font-[800]">Enter your password</label>
                   <input
                     type="password"
                     className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -149,7 +150,7 @@ const ProfileContent = ({ active }) => {
                 </div>
               </div>
               <input
-                className={`w-[250px] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
+                className={`w-[250px] h-[40px] font-[800] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
                 required
                 value="Update"
                 type="submit"
@@ -264,7 +265,7 @@ const AllOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "Rs/= " + item.totalPrice,
         status: item.status,
       });
     });
@@ -351,7 +352,7 @@ const AllRefundOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "Rs/= " + item.totalPrice,
         status: item.status,
       });
     });
@@ -436,10 +437,11 @@ const TrackOrder = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "Rs/= " + item.totalPrice,
         status: item.status,
       });
     });
+
 
   return (
     <div className="pl-8 pt-1">
@@ -480,9 +482,10 @@ const ChangePassword = () => {
   };
   return (
     <div className="w-full px-5">
-      <h1 className="block text-[25px] text-center font-[600] text-[#000000ba] pb-2">
+      <h1 className="block text-[25px] text-center font-[800] text-[#000000ba] pb-2">
         Change Password
       </h1>
+      
       <div className="w-full">
         <form
           aria-required
@@ -490,7 +493,7 @@ const ChangePassword = () => {
           className="flex flex-col items-center"
         >
           <div className=" w-[100%] 800px:w-[50%] mt-5">
-            <label className="block pb-2">Enter your old password</label>
+            <label className="block pb-2 font-[800]">Enter your old password</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -500,7 +503,7 @@ const ChangePassword = () => {
             />
           </div>
           <div className=" w-[100%] 800px:w-[50%] mt-2">
-            <label className="block pb-2">Enter your new password</label>
+            <label className="block pb-2 font-[800]">Enter your new password</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -510,7 +513,7 @@ const ChangePassword = () => {
             />
           </div>
           <div className=" w-[100%] 800px:w-[50%] mt-2">
-            <label className="block pb-2">Enter your confirm password</label>
+            <label className="block pb-2 font-[800]">Enter your confirm password</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -597,7 +600,7 @@ const Address = () => {
                 onClick={() => setOpen(false)}
               />
             </div>
-            <h1 className="text-center text-[25px] font-Poppins">
+            <h1 className="text-center text-[25px] font-Poppins font-[800]">
               Add New Address
             </h1>
             <div className="w-full">
@@ -725,14 +728,14 @@ const Address = () => {
         </div>
       )}
       <div className="flex w-full items-center justify-between">
-        <h1 className="text-[25px] font-[600] text-[#000000ba] pb-2">
+        <h1 className="text-[25px] font-[800] text-[#000000ba] pb-2">
           My Addresses
         </h1>
         <div
           className={`${styles.button} !rounded-md`}
           onClick={() => setOpen(true)}
         >
-          <span className="text-[#fff]">Add New</span>
+          <span className="text-[#fff] font-[800]">Add New</span>
         </div>
       </div>
       <br />
@@ -743,7 +746,7 @@ const Address = () => {
             key={index}
           >
             <div className="flex items-center">
-              <h5 className="pl-5 font-[600]">{item.addressType}</h5>
+              <h5 className="pl-5 font-[800]">{item.addressType}</h5>
             </div>
             <div className="pl-8 flex items-center">
               <h6 className="text-[12px] 800px:text-[unset]">
@@ -766,7 +769,7 @@ const Address = () => {
         ))}
 
       {user && user.addresses.length === 0 && (
-        <h5 className="text-center pt-8 text-[18px]">
+        <h5 className="text-center pt-8 text-[18px] font-[800]">
           You not have any saved address!
         </h5>
       )}

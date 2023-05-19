@@ -28,6 +28,7 @@ const CreateEvent = () => {
     const minEndDate = new Date(startDate.getTime() + 3 * 24 * 60 * 60 * 1000);
     setStartDate(startDate);
     setEndDate(null);
+    
     document.getElementById("end-date").min = minEndDate.toISOString.slice(0,10);
  }
 
@@ -83,7 +84,7 @@ const CreateEvent = () => {
 
   return (
     <div className="w-[90%] 800px:w-[50%] bg-white  shadow h-[80vh] rounded-[4px] p-3 overflow-y-scroll">
-      <h5 className="text-[30px] font-Poppins text-center">Create Event</h5>
+      <h5 className="text-[30px] font-[800] font-Poppins text-center">Create Event</h5>
       {/* create event form */}
       <form onSubmit={handleSubmit}>
         <br />
@@ -262,4 +263,3 @@ const CreateEvent = () => {
 };
 
 export default CreateEvent;
-

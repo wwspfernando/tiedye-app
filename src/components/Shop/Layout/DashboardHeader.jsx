@@ -14,14 +14,16 @@ const DashboardHeader = () => {
       <div>
         <Link to="/dashboard">
           <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-            alt=""
+           /* src="https://shopo.quomodothemes.website/assets/images/logo.svg"*/
+            alt="DIYPENGUIE"
           />
         </Link>
       </div>
       <div className="flex items-center">
         <div className="flex items-center mr-4">
-          <Link to="/dashboard/cupouns" className="800px:block hidden">
+          
+          
+          <Link to="/dashboard-coupouns" className="800px:block hidden">
             <AiOutlineGift
               color="#555"
               size={30}

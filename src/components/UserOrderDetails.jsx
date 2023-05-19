@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { BsFillBagFill } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
@@ -51,7 +52,7 @@ const UserOrderDetails = () => {
         toast.error(error);
       });
   };
-
+  
   const refundHandler = async () => {
     await axios.put(`${server}/order/order-refund/${id}`,{
       status: "Processing refund"
@@ -68,15 +69,16 @@ const UserOrderDetails = () => {
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
           <BsFillBagFill size={30} color="crimson" />
-          <h1 className="pl-2 text-[25px]">Order Details</h1>
+          
+          <h1 className="pl-2 text-[25px] font-[800]">Order Details</h1>
         </div>
       </div>
 
       <div className="w-full flex items-center justify-between pt-6">
-        <h5 className="text-[#00000084]">
+        <h5 className="text-[#08147f84]">
           Order ID: <span>#{data?._id?.slice(0, 8)}</span>
         </h5>
-        <h5 className="text-[#00000084]">
+        <h5 className="text-[#26910684]">
           Placed on: <span>{data?.createdAt?.slice(0, 10)}</span>
         </h5>
       </div>
@@ -85,7 +87,8 @@ const UserOrderDetails = () => {
       <br />
       <br />
       {data &&
-        data?.cart.map((item, index) => (
+        data?.cart.map((item, index) => {
+          return(
           <div className="w-full flex items-start mb-5">
             <img
               src={`${backend_url}/${item.images[0]}`}
@@ -94,20 +97,21 @@ const UserOrderDetails = () => {
             />
             <div className="w-full">
               <h5 className="pl-3 text-[20px]">{item.name}</h5>
-              <h5 className="pl-3 text-[20px] text-[#00000091]">
-                US${item.discountPrice} x {item.qty}
+              <h5 className="pl-3 text-[20px] text-[#46020291] font-[800]">
+                Rs/={item.discountPrice} x {item.qty}
               </h5>
             </div>
-            {item.isReviewed || item.status !== "delivered" ? null : (
-              <div
-                className={`${styles.button} text-[#fff]`}
+            {!item.isReviewed && data?.status === "Delivered" ?  <div
+                className={`${styles.button} text-[#fff] font-[800]`}
                 onClick={() => setOpen(true) || setSelectedItem(item)}
               >
                 Write a review
-              </div>
+              </div> : (
+             null
             )}
           </div>
-        ))}
+          )
+         })}
 
       {/* review popup */}
       {open && (
@@ -120,7 +124,7 @@ const UserOrderDetails = () => {
                 className="cursor-pointer"
               />
             </div>
-            <h2 className="text-[30px] font-[500] font-Poppins text-center">
+            <h2 className="text-[30px] font-[800] font-Poppins text-center">
               Give a Review
             </h2>
             <br />
@@ -133,7 +137,7 @@ const UserOrderDetails = () => {
               <div>
                 <div className="pl-3 text-[20px]">{selectedItem?.name}</div>
                 <h4 className="pl-3 text-[20px]">
-                  US${selectedItem?.discountPrice} x {selectedItem?.qty}
+                  Rs/={selectedItem?.discountPrice} x {selectedItem?.qty}
                 </h4>
               </div>
             </div>
@@ -142,7 +146,7 @@ const UserOrderDetails = () => {
             <br />
 
             {/* ratings */}
-            <h5 className="pl-3 text-[20px] font-[500]">
+            <h5 className="pl-3 text-[20px] font-[800]">
               Give a Rating <span className="text-red-500">*</span>
             </h5>
             <div className="flex w-full ml-2 pt-1">
@@ -168,9 +172,9 @@ const UserOrderDetails = () => {
             </div>
             <br />
             <div className="w-full ml-3">
-              <label className="block text-[20px] font-[500]">
+              <label className="block text-[20px] font-[800]">
                 Write a comment
-                <span className="ml-1 font-[400] text-[16px] text-[#00000052]">
+                <span className="ml-1 font-[800] text-[16px] text-[#00000052]">
                   (optional)
                 </span>
               </label>
@@ -186,7 +190,7 @@ const UserOrderDetails = () => {
               ></textarea>
             </div>
             <div
-              className={`${styles.button} text-white text-[20px] ml-3`}
+              className={`${styles.button} text-white text-[20px] ml-3 font-[800]`}
               onClick={rating > 1 ? reviewHandler : null}
             >
               Submit
@@ -196,15 +200,15 @@ const UserOrderDetails = () => {
       )}
 
       <div className="border-t w-full text-right">
-        <h5 className="pt-3 text-[18px]">
-          Total Price: <strong>US${data?.totalPrice}</strong>
+        <h5 className="pt-3 text-[18px] font-[800]">
+          Total Price: <strong>Rs/={data?.totalPrice}</strong>
         </h5>
       </div>
       <br />
       <br />
       <div className="w-full 800px:flex items-center">
         <div className="w-full 800px:w-[60%]">
-          <h4 className="pt-3 text-[20px] font-[600]">Shipping Address:</h4>
+          <h4 className="pt-3 text-[20px] font-[800]">Shipping Address:</h4>
           <h4 className="pt-3 text-[20px]">
             {data?.shippingAddress.address1 +
               " " +
@@ -215,7 +219,7 @@ const UserOrderDetails = () => {
           <h4 className=" text-[20px]">{data?.user?.phoneNumber}</h4>
         </div>
         <div className="w-full 800px:w-[40%]">
-          <h4 className="pt-3 text-[20px]">Payment Info:</h4>
+          <h4 className="pt-3 text-[20px] font-[800]">Payment Info:</h4>
           <h4>
             Status:{" "}
             {data?.paymentInfo?.status ? data?.paymentInfo?.status : "Not Paid"}
@@ -223,7 +227,7 @@ const UserOrderDetails = () => {
           <br />
            {
             data?.status === "Delivered" && (
-              <div className={`${styles.button} text-white`}
+              <div className={`${styles.button} text-white font-[800]`}
               onClick={refundHandler}
               >Give a Refund</div>
             )
@@ -232,7 +236,7 @@ const UserOrderDetails = () => {
       </div>
       <br />
       <Link to="/">
-        <div className={`${styles.button} text-white`}>Send Message</div>
+        <div className={`${styles.button} text-white font-[800]`}>Send Message</div>
       </Link>
       <br />
       <br />
@@ -241,4 +245,3 @@ const UserOrderDetails = () => {
 };
 
 export default UserOrderDetails;
-

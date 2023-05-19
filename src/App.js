@@ -21,7 +21,12 @@ import {
   ShopLoginPage,
   OrderDetailsPage,
   TrackOrderPage,
-  UserInbox
+  UserInbox,
+  BlogPage,
+  BlogDetails,
+  
+  /*ContactPage,*/
+  AboutPage
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -38,12 +43,24 @@ import {
   ShopSettingsPage,
   ShopWithDrawMoneyPage,
   ShopInboxPage
+
 } from "./routes/ShopRoutes";
+
+import {
+  AdminDashboardPage,
+  AdminDashboardUsers,
+  AdminDashboardSellers,
+  AdminDashboardOrders,
+  AdminDashboardProducts,
+  AdminDashboardEvents,
+  AdminDashboardWithdraw
+} from "./routes/AdminRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Store from "./redux/store";
 import { loadSeller, loadUser } from "./redux/actions/user";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import ProtectedAdminRoute from "./routes/ProtectedAdminRoute";
 import { ShopHomePage } from "./ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute";
 import { getAllProducts } from "./redux/actions/product";
@@ -51,8 +68,8 @@ import { getAllEvents } from "./redux/actions/event";
 import axios from "axios";
 import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
+//import { loadStripe } from "@stripe/stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
 
@@ -101,6 +118,10 @@ const App = () => {
         <Route path="/best-selling" element={<BestSellingPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blogdetails" element={<BlogDetails />} />
+        <Route path="/about" element={<AboutPage />} />
+        {/*<Route path="/contact" element={<ContactPage />} />*/}
         <Route
           path="/checkout"
           element={
@@ -249,6 +270,65 @@ const App = () => {
             <SellerProtectedRoute>
               <ShopInboxPage />
             </SellerProtectedRoute>
+          }
+        />
+
+
+        {/* Admin Routes */}
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardPage />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin-users"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardUsers />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin-sellers"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardSellers />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin-orders"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardOrders />
+            </ProtectedAdminRoute>
+          }
+        />
+         <Route
+          path="/admin-products"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardProducts />
+            </ProtectedAdminRoute>
+          }
+        />
+         <Route
+          path="/admin-events"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardEvents />
+            </ProtectedAdminRoute>
+          }
+        />
+         <Route
+          path="/admin-withdraw-request"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardWithdraw />
+            </ProtectedAdminRoute>
           }
         />
       </Routes>

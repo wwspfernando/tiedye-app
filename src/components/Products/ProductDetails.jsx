@@ -149,10 +149,10 @@ const ProductDetails = ({ data }) => {
                 <p>{data.description}</p>
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice}`}>
-                    {data.discountPrice}$
+                    {data.discountPrice}Rs/=
                   </h4>
                   <h3 className={`${styles.price}`}>
-                    {data.originalPrice ? data.originalPrice + "$" : null}
+                    {data.originalPrice ? data.originalPrice + "" : null}
                   </h3>
                 </div>
 
@@ -198,7 +198,7 @@ const ProductDetails = ({ data }) => {
                   className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
                   onClick={() => addToCartHandler(data._id)}
                 >
-                  <span className="text-white flex items-center">
+                  <span className="text-white flex items-center font-[800]">
                     Add to cart <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>
@@ -221,10 +221,10 @@ const ProductDetails = ({ data }) => {
                     </h5>
                   </div>
                   <div
-                    className={`${styles.button} bg-[#6443d1] mt-4 !rounded !h-11`}
+                    className={`${styles.button} bg-[#fa3e25] mt-4 !rounded !h-11`}
                     onClick={handleMessageSubmit}
                   >
-                    <span className="text-white flex items-center">
+                    <span className="text-white flex items-center font-[800]">
                       Send Message <AiOutlineMessage className="ml-1" />
                     </span>
                   </div>
@@ -260,7 +260,7 @@ const ProductDetailsInfo = ({
         <div className="relative">
           <h5
             className={
-              "text-[#000] text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
+              "text-[#0b0b0b] text-[18px] px-1 leading-5 font-[800] cursor-pointer 800px:text-[20px]"
             }
             onClick={() => setActive(1)}
           >
@@ -273,7 +273,8 @@ const ProductDetailsInfo = ({
         <div className="relative">
           <h5
             className={
-              "text-[#000] text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
+              
+              "text-[#000] text-[18px] px-1 leading-5 font-[800] cursor-pointer 800px:text-[20px]"
             }
             onClick={() => setActive(2)}
           >
@@ -286,7 +287,7 @@ const ProductDetailsInfo = ({
         <div className="relative">
           <h5
             className={
-              "text-[#000] text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
+              "text-[#000] text-[18px] px-1 leading-5 font-[800] cursor-pointer 800px:text-[20px]"
             }
             onClick={() => setActive(3)}
           >
@@ -317,15 +318,16 @@ const ProductDetailsInfo = ({
                 />
                 <div className="pl-2 ">
                   <div className="w-full flex items-center">
-                    <h1 className="font-[500] mr-3">{item.user.name}</h1>
+                    <h1 className="font-[800] mr-3">{item.user.name}</h1>
                     <Ratings rating={data?.ratings} />
                   </div>
                   <p>{item.comment}</p>
                 </div>
               </div>
+            
             ))}
 
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center ">
             {data && data.reviews.length === 0 && (
               <h5>No Reviews have for this product!</h5>
             )}
@@ -355,25 +357,25 @@ const ProductDetailsInfo = ({
           </div>
           <div className="w-full 800px:w-[50%] mt-5 800px:mt-0 800px:flex flex-col items-end">
             <div className="text-left">
-              <h5 className="font-[600]">
+              <h5 className="font-[800]">
                 Joined on:{" "}
-                <span className="font-[500]">
+                <span className="font-[700]">
                   {data.shop?.createdAt?.slice(0, 10)}
                 </span>
               </h5>
-              <h5 className="font-[600] pt-3">
+              <h5 className="font-[800] pt-3">
                 Total Products:{" "}
-                <span className="font-[500]">
+                <span className="font-[700]">
                   {products && products.length}
                 </span>
               </h5>
-              <h5 className="font-[600] pt-3">
+              <h5 className="font-[800] pt-3">
                 Total Reviews:{" "}
-                <span className="font-[500]">{totalReviewsLength}</span>
+                <span className="font-[700]">{totalReviewsLength}</span>
               </h5>
               <Link to="/">
                 <div
-                  className={`${styles.button} !rounded-[4px] !h-[39.5px] mt-3`}
+                  className={`${styles.button} !rounded-[4px] !h-[39.5px] mt-3 font-[800]`}
                 >
                   <h4 className="text-white">Visit Shop</h4>
                 </div>

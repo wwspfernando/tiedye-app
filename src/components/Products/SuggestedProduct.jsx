@@ -16,10 +16,11 @@ const SuggestedProduct = ({ data }) => {
 
   return (
     <div>
+      
       {data ? (
         <div className={`p-4 ${styles.section}`}>
           <h2
-            className={`${styles.heading} text-[25px] font-[500] border-b mb-5`}
+            className={`${styles.heading} text-[25px] font-[800] border-b mb-5`}
           >
             Related Product
           </h2>
@@ -37,4 +38,3 @@ const SuggestedProduct = ({ data }) => {
 };
 
 export default SuggestedProduct;
-
